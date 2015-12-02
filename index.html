@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/markov.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      function main() {
+        var result = '';
+        var sentence = 'es el vecino el que elige el alcalde y es el alcalde el que quiere que sean los vecinos el alcalde';
+        var chain = new Markov(sentence, 3);
+
+        chain.each(function (v) {
+          result += v;
+        });
+
+        el = document.querySelector('.Sentence-content');
+        el.textContent = '"' + result + '"';
+      }
+
+      window.onload = main;
+    </script>
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+      html, body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', 'helvetica-neue', 'Helvetica',  Arial, sans-serif;
+        font-weight: 400;
+      }
+      .Container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .Sentence {
+        width: 500px;
+      }
+      .Sentence-content {
+        margin: 0 0 10px 0;
+        line-height: 1.3;
+        font-size: 1.41em;
+        color: #333;
+      }
+      .Sentence-by, a {
+        color: #666;
+      }
+      footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        color: #666;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Container">
+      <div class="Sentence">
+        <div class="Sentence-content"></div>
+        <div class="Sentence-by">— <a href="https://www.youtube.com/watch?v=0y4eb0mAikU">Marianov Rajoy Chain</a></div>
+      </div>
+    </div>
+    <footer>
+      Recarga la página para leer una nueva frase | <a href="">Código fuente</a>
+    </footer>
+  </body>
+</html>
+
